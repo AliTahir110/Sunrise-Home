@@ -1,0 +1,3 @@
+'use client';
+import {motion,useReducedMotion} from 'motion/react';
+export default function SunriseMotif(){const reduce=useReducedMotion();return <div className="sunrise-motif" aria-hidden="true"><svg viewBox="0 0 240 140" fill="none"><path d="M16 122h208" stroke="currentColor" strokeWidth="1"/><motion.g initial={false} whileInView={reduce?{}:{y:[20,0],opacity:[.4,1]}} viewport={{once:true}} transition={{duration:1.8,ease:'easeOut'}}><path d="M57 121a63 63 0 01126 0" fill="currentColor" opacity=".16"/><path d="M45 121a75 75 0 01150 0M31 121a89 89 0 01178 0" stroke="currentColor" opacity=".5"/><path d="M120 9v13M40 42l10 10M200 42l-10 10M11 91l14 4M229 91l-14 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></motion.g></svg></div>}

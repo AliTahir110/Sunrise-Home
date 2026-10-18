@@ -1,0 +1,6 @@
+import Link from 'next/link';
+import {ArrowUpRight,Home,HeartHandshake,Sprout,BookOpen,Sun} from 'lucide-react';
+export function Button({href,children,secondary=false}:{href:string;children:React.ReactNode;secondary?:boolean}){return <Link href={href} className={`button ${secondary?'secondary':''}`}>{children}<ArrowUpRight size={17} aria-hidden="true"/></Link>}
+export function Eyebrow({children}:{children:React.ReactNode}){return <p className="eyebrow"><span/>{children}</p>}
+export function Icon({name}:{name:string}){const C={home:Home,heart:HeartHandshake,sprout:Sprout,book:BookOpen,sun:Sun}[name]||Home;return <C size={29} strokeWidth={1.4} aria-hidden="true"/>}
+export function Closing(){return <section className="closing"><div className="container closing-inner"><div><Eyebrow>A NEW CHAPTER STARTS WITH A CONVERSATION</Eyebrow><h2>Let’s build brighter<br/>futures together.</h2><p>Whether you’re exploring our services or discussing a referral,<br className="desktop"/> we’re here to help you take the next step.</p></div><div className="closing-buttons"><Button href="/contact">Contact Us</Button><Button href="/referrals" secondary>Make a Referral</Button></div><div className="sun-lines" aria-hidden="true"/></div></section>}

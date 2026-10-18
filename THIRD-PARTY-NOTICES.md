@@ -1,0 +1,11 @@
+# Component sources and adaptations
+
+Reviewed 17 October 2026. Components are integrated into Sunrise's styling; no paid templates or complete UI kits were installed.
+
+- **React Bits — Split Text**: https://reactbits.dev/text-animations/split-text . `components/primitives/split-text.tsx` is a purpose-built implementation of the staggered Split Text effect. React owns the word spans and GSAP animates them; this avoids DOM mutation conflicts during App Router navigation. It includes a single accessible heading label, reduced-motion and teardown handling. Upstream reference: https://github.com/DavidHDev/react-bits/blob/main/src/ts-default/TextAnimations/SplitText/SplitText.tsx . License reference retained in `licenses/react-bits.txt` (MIT + Commons Clause; components must not be resold as components).
+- **Motion Primitives — TransitionPanel**: https://github.com/ibelick/motion-primitives/blob/main/components/core/transition-panel.tsx . Adapted in `components/primitives/transition-panel.tsx`, with built-in reduced-motion handling and fixed gallery geometry. MIT notice in `licenses/motion-primitives.txt`.
+- **shadcn/ui — Accordion / Sheet / Dialog**: https://ui.shadcn.com/docs/components/radix/accordion . FAQ uses the documented Radix composition; mobile navigation and gallery use Radix Dialog's focus trapping, Escape dismissal and focus restoration. Styling is custom; only individual Radix packages are installed. MIT notice in `licenses/shadcn-ui.txt`.
+- **Magic UI — Bento Grid**: https://magicui.design/docs/components/bento-grid . Layout inspiration only; service cards are written for Sunrise with persistent accessible links and restrained Motion hover. No Magic UI source is vendored.
+- **Aceternity — Sticky Scroll Reveal**: https://ui.aceternity.com/components/sticky-scroll-reveal . Interaction reference only; the existing GSAP story is retained to avoid another scroll controller. Breakpoints match the CSS and the story has a skip link and natural-flow mobile/reduced-motion alternatives. No Aceternity source is vendored.
+
+GSAP and Motion remain the only JavaScript animation engines. No scroll hijacking, WebGL, remote font services, autoplay galleries or continuously looping decorative animations are introduced. Original logo asset is unchanged.
