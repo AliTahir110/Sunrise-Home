@@ -59,3 +59,7 @@ Locally hosted illustrative stock photographs under the Unsplash license (https:
 Production build, TypeScript and ESLint pass. Production dependency audit reports zero vulnerabilities. The full audit reports five high-severity entries in the development-only eslint-config-next → fast-glob → micromatch → braces chain; npm suggests an incompatible Next 14 lint-config downgrade. Review upstream fixes before using lint tooling on untrusted patterns. No forced downgrade was applied.
 
 Safari desktop checks verified homepage rendering, FAQ expansion, gallery switching, lightbox opening, keyboard image navigation and Escape dismissal, and client-side navigation from the animated homepage to Contact. An animation teardown issue found during navigation was fixed by reverting GSAP pinning in layout-effect cleanup and keeping split headline markup under React ownership. Mobile viewport checks, reduced-motion runtime behaviour and Lighthouse scores remain unverified. Responsive layouts, visible focus, semantic landmarks, form labels, native validation and reduced-motion fallbacks are implemented; no WCAG certification is claimed.
+
+## Render Web Service
+
+Use branch `main`, leave Root Directory blank, set Build Command to `npm ci && npm run build`, and Start Command to `npm start`. Set `NODE_VERSION=24`. No publish directory is required. The production start script binds to `0.0.0.0`; Next.js reads Render’s `PORT` environment variable automatically (3000 locally when unset). Development remains bound to localhost.
