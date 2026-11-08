@@ -1,6 +1,6 @@
 # Sunrise Homes Services
 
-Local Next.js App Router website with TypeScript, Tailwind CSS 4, GSAP ScrollTrigger, Lucide icons and locally hosted Manrope / Inter fonts. Original supplied logo is unchanged at `public/Brand/sunrise-logo.jpg`; CSS clips only its surrounding whitespace.
+Local Next.js App Router website with TypeScript, Tailwind CSS 4, GSAP ScrollTrigger, Lucide icons and locally hosted Manrope / Inter fonts. The supplied green-and-gold logo is stored at `public/Brand/sunrise-logo.png` and displayed without cropping or distortion.
 
 ## Run locally
 
@@ -26,9 +26,11 @@ Home, About, Services, Accommodation, Referrals, Safeguarding, Contact, Careers,
 
 Desktop storytelling uses native scrolling with a limited GSAP pin; mobile and reduced-motion users see all three stages in normal document flow. GSAP contexts clean up on navigation. Reveals preserve readable server-rendered content if scripts fail. GSAP handles the React-rendered Split Text entrance and scroll reveals; Motion handles bento hover, the sunrise motif, story/gallery crossfades and form feedback. CSS handles button, accordion and sheet transitions. Radix primitives provide FAQ and modal keyboard/focus behaviour. See THIRD-PARTY-NOTICES.md for sources and licenses.
 
-## Enquiries
+## Enquiries and careers applications
 
-No backend, mail service, database or secrets are configured. The forms validate locally, use a honeypot, and prepare a `mailto:` draft only after the visitor presses Prepare Email. The visitor must review and send from their email app. Nothing is sent or saved by the site. No sensitive case details or uploads should be collected here. A secure submission backend would require server validation, rate limiting, spam protection, approved retention/privacy arrangements and secure referral handling before enabling direct submission.
+General and referral forms validate locally, use a honeypot, and prepare a `mailto:` draft only after the visitor presses Prepare Email. The visitor must review and send from their email app; those forms do not upload or store information on the website.
+
+The Careers page has a multipart application form with server-side field, file-type and 5 MB size validation, a honeypot and basic rate limiting. It delivers applications and PDF/DOC/DOCX résumés through the Resend email API only when `RESEND_API_KEY`, `CAREERS_FROM_EMAIL` and optionally `CAREERS_TO_EMAIL` are configured. Copy `.env.example` to `.env.local` for local development and set the same secrets in Render. The sending domain must be verified with the provider. Without those variables, the form shows the recruitment email fallback and does not accept the application. Before production use, approve the recruitment privacy/retention process, add appropriate malware scanning and spam protection, and ensure access to the receiving inbox is restricted.
 
 ## Deployment (not performed)
 

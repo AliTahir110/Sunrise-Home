@@ -1,10 +1,11 @@
 'use client';
-import {useLayoutEffect,useRef} from 'react';
+import {useEffect,useLayoutEffect,useRef} from 'react';
 import {usePathname} from 'next/navigation';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 export default function Animations({children}:{children:React.ReactNode}){
  const root=useRef<HTMLDivElement>(null);const path=usePathname();
+ useEffect(()=>{if('scrollRestoration' in history)history.scrollRestoration='manual';let secondFrame=0;const firstFrame=requestAnimationFrame(()=>{secondFrame=requestAnimationFrame(()=>{window.scrollTo({top:0,left:0,behavior:'auto'});ScrollTrigger.clearScrollMemory('manual');ScrollTrigger.refresh()})});return()=>{cancelAnimationFrame(firstFrame);cancelAnimationFrame(secondFrame)}},[path]);
  useLayoutEffect(()=>{gsap.registerPlugin(ScrollTrigger);const mm=gsap.matchMedia();const ctx=gsap.context(()=>{
   mm.add('(prefers-reduced-motion: no-preference)',()=>{
    gsap.from('.hero-copy > :not(h1)',{opacity:0,y:18,duration:.7,stagger:.1,clearProps:'all'});
